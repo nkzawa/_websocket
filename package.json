@@ -1,0 +1,13 @@
+{
+  "name": "_websocket",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "zuul --local 3000 -- test/*.js"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "mocha": "~2.0.1",
+    "zuul": "~1.13.0"
+  }
+}

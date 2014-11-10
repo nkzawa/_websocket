@@ -7,4 +7,4 @@ var server = websocket.createServer(function(socket) {
   });
 });
 
-server.listen(process.env.ZUUL_PORT);
+server.listen(process.env.ZUUL_PORT || process.env.PORT);

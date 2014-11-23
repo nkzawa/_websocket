@@ -35,4 +35,24 @@ describe('_websocket', function() {
       done();
     };
   });
+
+  it('should echo some short text data', function(done) {
+    var messages = [ 'foo', 'bar', 'baz', 'qux' ];
+
+    var socket = new WebSocket('ws://' + location.host);
+    socket.onopen = function() {
+      messages.forEach(function(m) {
+        socket.send(m);
+      });
+    };
+
+    var received = [];
+    socket.onmessage = function(e) {
+      received.push(e.data);
+      if (received.length < messages.length) return;
+
+      expect(received).to.eql(messages);
+      done();
+    };
+  });
 });
